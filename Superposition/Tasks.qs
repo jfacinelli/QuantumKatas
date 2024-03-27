@@ -41,7 +41,7 @@ namespace Quantum.Kata.Superposition {
         // Type the following: H(q);
         // Then rebuild the project and rerun the tests - T01_PlusState should now pass!
 
-        // ...
+        H(q);
     }
 
 
@@ -51,7 +51,8 @@ namespace Quantum.Kata.Superposition {
     operation MinusState (q : Qubit) : Unit {
         // In this task, as well as in all subsequent ones, you have to come up with the solution yourself.
 
-        // ...
+        X(q);
+        Z(q);
     }
 
 
@@ -63,7 +64,8 @@ namespace Quantum.Kata.Superposition {
         // You don't need to modify them. Feel free to remove them, this won't cause your code to fail.
         Fact(Length(qs) == 2, "The array should have exactly 2 qubits.");
 
-        // ...
+        H(qs[0]);
+        H(qs[1]);
     }
 
 
@@ -71,7 +73,9 @@ namespace Quantum.Kata.Superposition {
     // Input: two qubits in |00⟩ state (stored in an array of length 2).
     // Goal:  create the following state on these qubits: (|00⟩ + |01⟩ + |10⟩ - |11⟩) / 2.
     operation AllBasisVectorWithPhaseFlip_TwoQubits (qs : Qubit[]) : Unit {
-        // ...
+        H(qs[0]);
+        H(qs[1]);
+        Controlled Z([qs[0]], qs[1]);
     }
 
 
@@ -92,7 +96,8 @@ namespace Quantum.Kata.Superposition {
     // Input: two qubits in |00⟩ state (stored in an array of length 2).
     // Goal: create a Bell state |Φ⁺⟩ = (|00⟩ + |11⟩) / sqrt(2) on these qubits.
     operation BellState (qs : Qubit[]) : Unit {
-        // ...
+        H(qs[0]);
+        CNOT(qs[0], qs[1]);
     }
 
 
@@ -106,7 +111,19 @@ namespace Quantum.Kata.Superposition {
     //       2: |Ψ⁺⟩ = (|01⟩ + |10⟩) / sqrt(2)
     //       3: |Ψ⁻⟩ = (|01⟩ - |10⟩) / sqrt(2)
     operation AllBellStates (qs : Qubit[], index : Int) : Unit {
-        // ...
+        H(qs[0]);
+        CNOT(qs[0], qs[1]);
+
+        if index == 1 {
+            Z(qs[0]);
+        }
+        if index == 2 {
+            X(qs[1]);
+        }
+        if index == 3 {
+            Z(qs[0]);
+            X(qs[1]);
+        }
     }
 
 

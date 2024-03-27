@@ -15,15 +15,16 @@ namespace Quantum.Kata.MultiQubitGates {
     }
 
     operation BellState (qs : Qubit[]) : Unit is Adj {
-        // ...        
+        H(qs[0]);
+        CNOT(qs[0], qs[1]);
     }
 
     operation QubitSwap (qs : Qubit[], index1 : Int, index2 : Int) : Unit is Adj {
-        // ...        
+        SWAP(qs[index1], qs[index2]);        
     }
 
     operation ControlledRotation (qs : Qubit[], theta : Double) : Unit is Adj {
-        // ...        
+        Controlled Rx([qs[0]], (theta, qs[1]));       
     }
 
     operation MultiControls (controls : Qubit[], target : Qubit, controlBits : Bool[]) : Unit is Adj {

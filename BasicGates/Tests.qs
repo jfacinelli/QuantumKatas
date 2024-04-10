@@ -333,4 +333,6 @@ namespace Quantum.Kata.BasicGates {
         DumpDiff(3, StatePrepMiscAmplitudes, FredkinGate, FredkinGate_Reference);
         AssertOperationsEqualReferenced(3, FredkinGate, FredkinGate_Reference);
     }
+
+    
 }

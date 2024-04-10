@@ -88,7 +88,10 @@ namespace Quantum.Kata.Superposition {
         Fact(Length(qs) == 2, "The array should have exactly 2 qubits.");
 
         // Hint: Is this state separable?
-        // ...
+        H(qs[1]);
+        H(qs[0]);
+        S(qs[1]);
+        Z(qs[0]);
     }
 
 
